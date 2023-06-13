@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventListener</title>
+
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+</head>
+<body>
+    
+    <h1>Click Event</h1>
+    
+    <button id="run" type="button" class="button">Button Click ME!</button> 
+    
+    <py-script>
+from pyodide import create_proxy
+
+runButton = document.getElementById('run')
+        
+def colorC(event):
+    runButton.setAttribute('style','background-color:blue')
+            
+cc = create_proxy(colorC)
+runButton.addEventListener("click",cc)
+    </py-script>
+</body>
+    </html>
